@@ -1,0 +1,6 @@
+<h2>検索</h2>
+<form action="{% url 'search:search_report' %}"" method="post">
+  <label for="id_q">キーワード</label>
+  {{ form.keyword }}
+  <input type="submit" value="検索">
+</form>

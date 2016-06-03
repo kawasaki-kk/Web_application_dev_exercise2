@@ -21,7 +21,7 @@ urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^polls/', include('polls.urls', namespace='polls')),
     url(r'^accounts/', include('accounts.urls', namespace='accounts')),
-    url(r'^search/', include('haystack.urls')),
+    url(r'^search/', include('search.urls', namespace='search')),
     # url(r'^search/', include('haystack.urls')),
 ]
     # url(r'^login/$', 'django.contrib.auth.views.login', {'template_name': 'accounts/login.html'}),
