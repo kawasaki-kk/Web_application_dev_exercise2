@@ -20,17 +20,20 @@ table {
 
 {% block content %}
     <h3 class="page-header">日報内容 <small>{{ report.name }}</small></h3>
+
     <div class="jumbotron">
-      <p>BootstrapはモダンなUIを作成できるCSSフレームワークです。</p>
-      <p>Bootstrapを使えば、かっこいいWebアプリが簡単に作れます。</p>
-      <p>{{ report_content }}</p>
+      {% for comment in comments %}
+      <p>{{ report.content }}</p>
+      <form name=myText>
+        <input type="text" name=myText value=$report.content readonly>
+      </form>
+      {% endfor %}
     </div>
 
     <a href="{% url 'polls:comment_add' report_id=report.id %}" class="btn btn-default btn-sm">コメントの追加</a>
     <table class="table table-striped table-bordered">
       <thead>
         <tr>
-          <!-- <th>ID</th> -->
           <th>コメント</th>
           <th>投稿者</th>
           <th>操作</th>
@@ -39,7 +42,6 @@ table {
       <tbody>
         {% for comment in comments %}
         <tr>
-          <!-- <td>{{ comment.id }}</td> -->
           <td>{{ comment.comment|linebreaksbr }}</td>
           <td>{{ comment.commenter|linebreaksbr }}</td>
           <td>
